@@ -1,36 +1,39 @@
+NAME = main.a
 
-NAME = push_swap.a
+EXEC = main
 
 CC = cc
 
-#CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
-SRC_C = src/operations/push.c\
-			src/operations/reverse_rotate.c\
-			src/operations/reverse.c\
-			src/operations/rotate.c\
-			src/operations/swap.c\
-			src/brute.c\
-			src/main.c\
-			utils/utils.c
+SRC_C = src/operations/push.c \
+        src/operations/reverse_rotate.c \
+        src/operations/reverse.c \
+        src/operations/rotate.c \
+        src/operations/swap.c \
+        src/brute.c \
+        src/main.c \
+        utils/utils.c
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRC_C:.c=.o)
 
-all : $(NAME)
+all: $(NAME) $(EXEC)
 
-$(NAME) :
-	@$(CC) $(CFLAGS) $(SRC_C) -c
+$(NAME): $(OBJS)
 	@ar -rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
-	@$(CC) $(CFLAGS) src/main.c $(NAME) -o main
 
+$(EXEC): $(OBJS)
+	@$(CC) $(CFLAGS) src/main.c $(NAME) -o $(EXEC)
 
-clean :
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
 	@rm -rf $(OBJS)
 
-fclean : clean
-	@rm -rf *.o
+fclean: clean
+	@rm -rf $(EXEC)
 	@rm -rf $(NAME)
 
-re : fclean all
-	@rm -rf $(OBJS)
+re: fclean all
