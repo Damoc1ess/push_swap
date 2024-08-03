@@ -6,7 +6,7 @@
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 13:22:02 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/03 16:16:46 by fflamion         ###   ########.fr       */
+/*   Updated: 2024/08/03 18:31:59 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	free_stack(t_stack *stack);
 void	copy_stack(t_stack *dest, t_stack *src);
 void	undo_operation(t_stack *a, t_stack *b, int op);
 
-int is_sorted(t_stack *a);
+int 	is_sorted(t_stack *a);
+void	ft_putstr_red(char *str);
 
 #endif
