@@ -6,7 +6,7 @@
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 12:50:00 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/03 18:23:06 by fflamion         ###   ########.fr       */
+/*   Updated: 2024/08/03 23:51:52 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	rra(t_stack *a)
 			i--;
 		}
 		a->data[0] = last;
-		// write(1, "rra\n", 4);
+		write(1, "rra\n", 4);
 	}
 }
 
@@ -46,7 +46,7 @@ void	rrb(t_stack *b)
 			i--;
 		}
 		b->data[0] = last;
-		// write(1, "rrb\n", 4);
+		write(1, "rrb\n", 4);
 	}
 }
 
@@ -54,5 +54,5 @@ void	rrr(t_stack *a, t_stack *b)
 {
 	rra(a);
 	rrb(b);
-	// write(1, "rrr\n", 4);
+	write(1, "rrr\n", 4);
 }

@@ -6,7 +6,7 @@
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 12:20:11 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/03 18:23:04 by fflamion         ###   ########.fr       */
+/*   Updated: 2024/08/03 23:51:41 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	pa(t_stack *a, t_stack *b)
 			i++;
 		}
 		b->size--;
-		// write(1, "pa\n", 3);
+		write(1, "pa\n", 3);
 	}
 }
 
@@ -58,6 +58,6 @@ void	pb(t_stack *a, t_stack *b)
 			i++;
 		}
 		a->size--;
-		// write(1, "pb\n", 3);
+		write(1, "pb\n", 3);
 	}
 }

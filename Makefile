@@ -1,4 +1,4 @@
-NAME = main.a
+NAME = push_swap
 
 EXEC = main
 

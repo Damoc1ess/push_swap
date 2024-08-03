@@ -6,7 +6,7 @@
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 13:22:02 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/03 18:31:59 by fflamion         ###   ########.fr       */
+/*   Updated: 2024/08/03 22:32:41 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,16 @@ void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 
-void	backtrack(t_stack *a, t_stack *b, t_solution *best_solution, t_solution *current_solution);
-
 void	print_stack(t_stack *stack, const char *name);
 void	read_input(t_stack *a, int argc, char **argv);
-int		evaluate_solution(t_stack *a);
-
 void	init_stack(t_stack *stack, int size);
 void	free_stack(t_stack *stack);
-void	copy_stack(t_stack *dest, t_stack *src);
-void	undo_operation(t_stack *a, t_stack *b, int op);
+int		is_sorted(t_stack *a);
+void	sort_stack(t_stack *a, t_stack *b);
+void	apply_operation(t_stack *a, t_stack *b, int op);
+void	add_operation(t_solution *solution, int op);
+void	copy_solution(t_solution *dest, t_solution *src);
 
-int 	is_sorted(t_stack *a);
 void	ft_putstr_red(char *str);
 
 #endif
