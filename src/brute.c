@@ -1,45 +1,21 @@
 #include "../include/push_swap.h"
 
-void quicksort(t_stack *a, t_stack *b, t_solution *solution)
+void sort_three_elements(t_stack *a, t_stack *b)
 {
-	if (a->size <= 1 || is_sorted(a))
-		return;
-
-	int pivot = a->data[a->size / 2];
-
-	for (int i = 0; i < a->size; i++)
+	if (a->data[0] > a->data[1] && a->data[0] < a->data[2])
+		sa(a); // Cas: 2 1 3 -> 1 2 3
+	else if (a->data[0] > a->data[1] && a->data[1] > a->data[2])
 	{
-		if (a->data[a->size - 1] <= pivot)
-		{
-			pb(a, b);
-			add_operation(solution, PB);
-		}
-		else
-		{
-			ra(a);
-			add_operation(solution, RA);
-		}
+		sa(a);
+		rra(a); // Cas: 3 2 1 -> 2 3 1 -> 1 2 3
 	}
-
-	quicksort(a, b, solution);
-
-	while (b->size > 0)
+	else if (a->data[0] > a->data[1] && a->data[0] > a->data[2])
+		ra(a); // Cas: 3 1 2 -> 1 2 3
+	else if (a->data[0] < a->data[1] && a->data[0] > a->data[2])
+		rra(a); // Cas: 2 3 1 -> 1 2 3
+	else if (a->data[0] < a->data[1] && a->data[1] > a->data[2])
 	{
-		pa(a, b);
-		add_operation(solution, PA);
+		sa(a);
+		ra(a); // Cas: 1 3 2 -> 3 1 2 -> 1 2 3
 	}
-}
-
-void sort_stack(t_stack *a, t_stack *b)
-{
-	t_solution solution;
-	solution.operations = malloc(a->size * 10 * sizeof(int));
-	solution.op_count = 0;
-
-	quicksort(a, b, &solution);
-
-	char buf[50];
-	int len = snprintf(buf, sizeof(buf), "Total operations: %d\n", solution.op_count);
-	write(1, buf, len);
-	free(solution.operations);
 }
