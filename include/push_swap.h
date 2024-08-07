@@ -6,7 +6,7 @@
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 12:03:07 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/07 14:04:27 by fflamion         ###   ########.fr       */
+/*   Updated: 2024/08/07 14:20:22 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ void			rrr(t_stack *a, t_stack *b);
 char			**ft_split(char const *s, char c);
 void			ft_print_stack(t_stack *a);
 int				count_words(char *s, char c);
+int				ft_atoi(const char *str);
 
 #endif

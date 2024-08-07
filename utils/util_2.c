@@ -6,7 +6,7 @@
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 18:09:09 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/06 13:49:47 by fflamion         ###   ########.fr       */
+/*   Updated: 2024/08/07 14:20:06 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,29 @@ void	ft_putstr_red(char *str)
 	write(1, &str, i);
 }
 
-char	*ft_strncpy(char *s1, char *s2, int n)
-{
-	int	i;
 
-	i = -1;
-	while (++i < n && s2[i])
-		s1[i] = s2[i];
-	s1[i] = '\0';
-	return (s1);
-}
-
-void	ft_print_stack(t_stack *a)
+int		ft_atoi(const char *str)
 {
-	int	i;
+	int neg;
+	int i;
+	int num;
 
 	i = 0;
-	printf("-------\n");
-	while (i <= a->size - 1)
+	neg = 1;
+	num = 0;
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
+			|| str[i] == '\f' || str[i] == '\r')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		printf("   %d\n", a->data[i]);
+		if (str[i] == '-')
+			neg *= -1;
 		i++;
 	}
-	printf("-------\n");
+	while (str[i] >= 48 && str[i] <= 57)
+	{
+		num = num * 10 + (str[i] - 48);
+		i++;
+	}
+	return (num * neg);
 }

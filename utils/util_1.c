@@ -6,7 +6,7 @@
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 12:05:33 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/07 13:58:49 by fflamion         ###   ########.fr       */
+/*   Updated: 2024/08/07 14:15:30 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void read_input(t_stack *a, int arg_count, char **argv)
 {
-	int	i = 0;
+	int	i;
+
+	i = 0;
 	// Initialisez la pile a avec les valeurs des arguments
 	a->size = arg_count;
 	a->data = malloc(sizeof(int) * arg_count);
@@ -23,7 +25,7 @@ void read_input(t_stack *a, int arg_count, char **argv)
 
 	while (i < arg_count)
 	{
-		a->data[i] = atoi(argv[i]); 
+		a->data[i] = ft_atoi(argv[i]); 
 		i++;
 	}
 }
