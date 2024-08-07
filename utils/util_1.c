@@ -6,7 +6,7 @@
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 12:05:33 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/07 13:32:25 by fflamion         ###   ########.fr       */
+/*   Updated: 2024/08/07 13:58:49 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void init_stack(t_stack *stack, int size)
 	if (!stack->data)
 		return;
 }
-
+// fonction pour test POUBLELLE
 void ft_print_stack(t_stack *stack)
 {
 	int	i;
@@ -65,11 +65,4 @@ int is_sorted(t_stack *a)
 		i++;
 	}
 	return 1;
-}
-
-void swap(t_stack *a, int i, int j)
-{
-	int temp = a->data[i];
-	a->data[i] = a->data[j];
-	a->data[j] = temp;
 }

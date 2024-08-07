@@ -6,7 +6,7 @@
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 13:22:00 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/07 13:51:41 by fflamion         ###   ########.fr       */
+/*   Updated: 2024/08/07 14:03:19 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ void which_sort(t_stack *a, t_stack *b)
 {
 	while (!is_sorted(a))
 	{
-		if (a->size == 3)
-		{
+		if (a->size == 2)
+			sa(a);
+		else if (a->size == 3)
 			sort_three_elements(a, b);
-		}
+		else if (a->size > 3)
+			sorting_algo(a, b);
 	}
 }
 
@@ -67,10 +69,10 @@ int main(int argc, char **argv)
 
 	read_input(&a, arg_count, split_args);
 	init_stack(&b, a.size);
-	printf("size of stack A : %d\n", a.size);
-	ft_print_stack(&a);
+	printf("size of stack A : %d\n", a.size);//  NE PAS GARDER
+	ft_print_stack(&a);                      //  NE PAS GARDER
 	which_sort(&a, &b);
-	ft_print_stack(&a);
+	ft_print_stack(&a);                      //  NE PAS GARDER
 	free_stack(&a);
 	free_stack(&b);
 

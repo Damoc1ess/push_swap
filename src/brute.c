@@ -6,7 +6,7 @@
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 14:53:19 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/07 13:07:04 by fflamion         ###   ########.fr       */
+/*   Updated: 2024/08/07 14:04:20 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,9 @@ void sort_three_elements(t_stack *a, t_stack *b)
 		sa(a);
 		ra(a); // Cas: 1 3 2 -> 3 1 2 -> 1 2 3
 	}
+}
+
+void	sorting_algo(t_stack *a, t_stack *b)
+{
+	
 }
