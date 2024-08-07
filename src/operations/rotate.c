@@ -6,13 +6,13 @@
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 12:50:00 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/05 13:21:43 by fflamion         ###   ########.fr       */
+/*   Updated: 2024/08/07 15:35:14 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	ra(t_stack *a)
+void	ra(t_stack *a, int j)
 {
 	int	first;
 	int	i;
@@ -27,11 +27,12 @@ void	ra(t_stack *a)
 			i++;
 		}
 		a->data[a->size - 1] = first;
-		write(1, "ra\n", 4);
+		if (j)
+			write(1, "ra\n", 4);
 	}
 }
 
-void	rb(t_stack *b)
+void	rb(t_stack *b, int j)
 {
 	int	first;
 	int	i;
@@ -46,13 +47,14 @@ void	rb(t_stack *b)
 			i++;
 		}
 		b->data[b->size -1] = first;
-		write(1, "rb\n", 4);
+		if (j)
+			write(1, "rb\n", 4);
 	}
 }
 
 void	rr(t_stack *a, t_stack *b)
 {
-	ra(a);
-	rb(b);
+	ra(a, 0);
+	rb(b, 0);
 	write(1, "rr\n", 4);
 }
