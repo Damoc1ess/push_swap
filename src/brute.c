@@ -6,7 +6,7 @@
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 14:53:19 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/07 17:16:37 by fflamion         ###   ########.fr       */
+/*   Updated: 2024/08/07 21:40:04 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,5 @@ void sort_three_elements(t_stack *a, t_stack *b)
 	}
 }
 
+void sorting_algo(t_stack *a, t_stack *b)
 
-void	sorting_algo(t_stack *a, t_stack *b)
-{
-	if (a->size > 3 && !is_sorted(a))
-		pb (a, b);
-	if (a->size > 3 && !is_sorted(a))
-		pb (a, b);
-	
-}

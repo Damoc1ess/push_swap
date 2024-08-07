@@ -6,7 +6,7 @@
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 12:05:33 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/07 19:50:47 by fflamion         ###   ########.fr       */
+/*   Updated: 2024/08/07 21:24:53 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int is_sorted(t_stack *a)
 	while (i < a->size - 1)
 	{
 		if (a->data[i] > a->data[i + 1])
-			return 0;
+			return (0);
 		i++;
 	}
 	return 1;

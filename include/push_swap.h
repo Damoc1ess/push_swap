@@ -6,7 +6,7 @@
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 12:03:07 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/07 19:46:18 by fflamion         ###   ########.fr       */
+/*   Updated: 2024/08/07 21:39:10 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int				count_words(char *s, char c);
 int				ft_atoi(const char *str);
 int				check_args(char **tab);
 int				ft_isdigit(char *str);
-void			free_split(char **str);
+void			free_split(char **split_args);
+int				find_pivot(t_stack *a);
+void			manual_sort(int *array, int size);
 
 #endif

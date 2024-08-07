@@ -14,6 +14,7 @@ SRC_C = src/operations/push.c \
         src/main.c \
         utils/util_1.c\
 		utils/util_2.c\
+		utils/util_3.c\
 		utils/ft_split.c
 
 OBJS = $(SRC_C:.c=.o)
@@ -21,23 +22,23 @@ OBJS = $(SRC_C:.c=.o)
 all: $(NAME) $(EXEC)
 
 $(NAME): $(OBJS)
-	ar -rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+	@ar -rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
 
 $(EXEC): $(OBJS)
-	$(CC) $(CFLAGS) src/main.c $(NAME) -o $(EXEC)
+	@$(CC) $(CFLAGS) src/main.c $(NAME) -o $(EXEC)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJS)
+	@rm -rf $(OBJS)
 
 fclean: clean
-	rm -rf $(EXEC)
-	rm -rf $(NAME)
+	@rm -rf $(EXEC)
+	@rm -rf $(NAME)
 
 re: fclean all
-	rm -rf $(OBJS)
+	@rm -rf $(OBJS)
 
 .SILENT:

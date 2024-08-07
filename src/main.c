@@ -6,7 +6,7 @@
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 13:22:00 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/07 19:48:41 by fflamion         ###   ########.fr       */
+/*   Updated: 2024/08/07 21:12:35 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ int main(int argc, char **argv)
 	}
 	if(check_args(split_args) == 1)
 		{
-			write(1, "Error\n", 6);
-			return (0);
+			return (write(1, "Error\n", 6)) , (0);
+			
 		}
 	read_input(&a, arg_count, split_args);
 	init_stack(&b, a.size);
@@ -79,16 +79,7 @@ int main(int argc, char **argv)
 	ft_print_stack(&a);                      //  NE PAS GARDER
 	free_stack(&a);
 	free_stack(&b);
-
 	if (argc == 2)
-	{
-		i = 0;
-		while (split_args[i])
-		{
-			free(split_args[i]);
-			i++;
-		}
-		free(split_args);
-	}
+		free_split(split_args);
 	return (0);
 }
