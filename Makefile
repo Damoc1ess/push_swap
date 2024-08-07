@@ -13,7 +13,8 @@ SRC_C = src/operations/push.c \
         src/brute.c \
         src/main.c \
         utils/util_1.c\
-		utils/util_2.c
+		utils/util_2.c\
+		utils/ft_split.c
 
 OBJS = $(SRC_C:.c=.o)
 
