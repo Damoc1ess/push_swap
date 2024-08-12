@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/06 12:08:20 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/07 13:53:43 by fflamion         ###   ########.fr       */
+/*   Created: 2024/08/11 11:32:19 by fflamion          #+#    #+#             */
+/*   Updated: 2024/08/11 12:01:58 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
-
+#include "../../include/push_swap.h"
 
 static int	ft_strlen(char *str)
 {
@@ -104,16 +103,3 @@ char	**ft_split(char const *s, char c)
 	res = make(res, (char *)s, c, len);
 	return (res);
 }
-/*
-int	main(int ac, char **av)
-{
-	int	i;
-
-	i = 0;
-	(void)ac;
-	av = ft_split(av[1], ' ');
-	while (av[i])
-		printf("%s\n", av[i++]);
-	return (0);
-}
-*/

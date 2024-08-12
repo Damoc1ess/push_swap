@@ -5,59 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/03 12:20:11 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/03 23:51:41 by fflamion         ###   ########.fr       */
+/*   Created: 2024/08/11 11:31:52 by fflamion          #+#    #+#             */
+/*   Updated: 2024/08/11 11:48:48 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	pa(t_stack *a, t_stack *b)
+static void	push(t_stack **src, t_stack **dest)
 {
-	int	i;
+	t_stack	*temp;
 
-	if (b->size)
-	{
-		i = a->size;
-		while (i)
-		{
-			a->data[i] = a->data[i - 1];
-			i--;
-		}
-		a->data[0] = b->data[0];
-		a->size++;
-		i = 0;
-		while (i < b->size -1)
-		{
-			b->data[i] = b->data[i + 1];
-			i++;
-		}
-		b->size--;
-		write(1, "pa\n", 3);
-	}
+	if (*src == NULL)
+		return ;
+	temp = (*src)->next;
+	(*src)->next = *dest;
+	*dest = *src;
+	*src = temp;
 }
 
-void	pb(t_stack *a, t_stack *b)
+void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-	int	i;
+	push(stack_b, stack_a);
+	ft_putstr("pa\n");
+}
 
-	if (a->size)
-	{
-		i = b->size;
-		while (i)
-		{
-			b->data[i] = b->data[i - 1];
-			i--;
-		}
-		b->data[0] = a->data[0];
-		b->size++;
-		i = 0;
-		while (i < a->size -1)
-		{
-			a->data[i] = a->data[i + 1];
-			i++;
-		}
-		a->size--;
-		write(1, "pb\n", 3);
-	}
+void	pb(t_stack **stack_a, t_stack **stack_b)
+{
+	push(stack_a, stack_b);
+	ft_putstr("pb\n");
 }

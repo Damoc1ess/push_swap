@@ -5,56 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/03 12:50:00 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/07 15:35:14 by fflamion         ###   ########.fr       */
+/*   Created: 2024/08/11 11:31:43 by fflamion          #+#    #+#             */
+/*   Updated: 2024/08/11 11:48:48 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	ra(t_stack *a, int j)
+static void	rotate(t_stack **stack)
 {
-	int	first;
-	int	i;
+	t_stack	*temp;
+	t_stack	*tail;
 
-	if (a->size > 1)
-	{
-		first = a->data[0];
-		i = 0;
-		while (i < a->size)
-		{
-			a->data[i] = a->data[i + 1];
-			i++;
-		}
-		a->data[a->size - 1] = first;
-		if (j)
-			write(1, "ra\n", 4);
-	}
+	temp = *stack;
+	*stack = (*stack)->next;
+	tail = get_last(*stack);
+	temp->next = NULL;
+	tail->next = temp;
 }
 
-void	rb(t_stack *b, int j)
+void	ra(t_stack **stack_a)
 {
-	int	first;
-	int	i;
-
-	if (b->size > 1)
-	{
-		first = b->data[0];
-		i = 0;
-		while (i < b->size -1)
-		{
-			b->data[i] = b->data[i + 1];
-			i++;
-		}
-		b->data[b->size -1] = first;
-		if (j)
-			write(1, "rb\n", 4);
-	}
+	rotate(stack_a);
+	ft_putstr("ra\n");
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rb(t_stack **stack_b)
 {
-	ra(a, 0);
-	rb(b, 0);
-	write(1, "rr\n", 4);
+	rotate(stack_b);
+	ft_putstr("rb\n");
+}
+
+void	rr(t_stack **stack_a, t_stack **stack_b)
+{
+	rotate(stack_a);
+	rotate(stack_b);
+	ft_putstr("rr\n");
 }

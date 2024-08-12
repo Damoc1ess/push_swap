@@ -1,44 +1,50 @@
-NAME = push_swap
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/08/11 11:30:21 by fflamion          #+#    #+#              #
+#    Updated: 2024/08/11 14:37:44 by fflamion         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-EXEC = main
+CC	= gcc
 
-CC = cc
+FLAGS	= -Wall -Werror -Wextra
+# CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 
-CFLAGS = -g3
+NAME	= push_swap
 
-SRC_C = src/operations/push.c \
-        src/operations/reverse_rotate.c \
-        src/operations/rotate.c \
-        src/operations/swap.c \
-        src/brute.c \
-        src/main.c \
-        utils/util_1.c\
-		utils/util_2.c\
-		utils/util_3.c\
-		utils/ft_split.c
+SRC		= main.c \
+		src/utils/check_args.c \
+		src/utils/check_args_utils.c \
+		src/utils/stack.c \
+		src/operations/swap.c \
+		src/operations/push.c \
+		src/operations/rotate.c \
+		src/operations/reverse_rotate.c \
+		src/utils/sort.c \
+		src/utils/algo.c \
+		src/utils/finder.c \
+		src/utils/get_cost.c \
+		src/utils/utils.c \
+		src/utils/ft_split.c
 
-OBJS = $(SRC_C:.c=.o)
+OBJ		= $(SRC:.c=.o)
 
-all: $(NAME) $(EXEC)
+all: $(NAME) 
 
-$(NAME): $(OBJS)
-	@ar -rc $(NAME) $(OBJS)
-	@ranlib $(NAME)
-
-$(EXEC): $(OBJS)
-	@$(CC) $(CFLAGS) src/main.c $(NAME) -o $(EXEC)
-
-%.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+$(NAME): $(OBJ)
+	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 clean:
-	@rm -rf $(OBJS)
+	@rm -rf $(OBJ)
 
 fclean: clean
-	@rm -rf $(EXEC)
-	@rm -rf $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
-	@rm -rf $(OBJS)
 
-.SILENT:
+.PHONY: all clean fclean re

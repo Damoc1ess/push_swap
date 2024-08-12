@@ -5,56 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/03 12:50:00 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/07 15:35:25 by fflamion         ###   ########.fr       */
+/*   Created: 2024/08/11 11:31:48 by fflamion          #+#    #+#             */
+/*   Updated: 2024/08/11 11:48:48 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	rra(t_stack *a, int j)
+static void	rev_rotate(t_stack **stack)
 {
-	int	last;
-	int	i;
+	t_stack	*temp;
+	t_stack	*tail;
+	t_stack	*before_tail;
 
-	if (a->size > 1)
-	{
-		last = a->data[a->size - 1];
-		i = a->size - 1;
-		while (i)
-		{
-			a->data[i] = a->data[i - 1];
-			i--;
-		}
-		a->data[0] = last;
-		if (j)
-			write(1, "rra\n", 4);
-	}
+	tail = get_last(*stack);
+	before_tail = get_before_last(*stack);
+	temp = *stack;
+	*stack = tail;
+	(*stack)->next = temp;
+	before_tail->next = NULL;
 }
 
-void	rrb(t_stack *b,int j)
+void	rra(t_stack **stack_a)
 {
-	int	last;
-	int	i;
-
-	if (b->size > 1)
-	{
-		last = b->data[b->size - 1];
-		i = b->size - 1;
-		while (i)
-		{
-			b->data[i] = b->data[i - 1];
-			i--;
-		}
-		b->data[0] = last;
-		if (j)
-			write(1, "rrb\n", 4);
-	}
+	rev_rotate(stack_a);
+	ft_putstr("rra\n");
 }
 
-void	rrr(t_stack *a, t_stack *b)
+void	rrb(t_stack **stack_b)
 {
-	rra(a, 0);
-	rrb(b, 0);
-	write(1, "rrr\n", 4);
+	rev_rotate(stack_b);
+	ft_putstr("rrb\n");
+}
+
+void	rrr(t_stack **stack_a, t_stack **stack_b)
+{
+	rev_rotate(stack_a);
+	rev_rotate(stack_b);
+	ft_putstr("rrr\n");
 }
