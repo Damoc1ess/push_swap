@@ -6,7 +6,7 @@
 /*   By: fflamion <fflamion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 11:30:30 by fflamion          #+#    #+#             */
-/*   Updated: 2024/08/11 16:37:00 by fflamion         ###   ########.fr       */
+/*   Updated: 2024/08/13 21:13:08 by fflamion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,25 +94,6 @@ void	get_position(t_stack *stack)
 	}
 }
 
-// t_stack	*get_cheapest(t_stack *stack)
-// {
-// 	long	smallest;
-// 	t_stack	*cheapest;
-
-// 	if (!stack)
-// 		return (NULL);
-// 	smallest = LONG_MAX;
-// 	while (stack)
-// 	{
-// 		if (stack->cost < smallest)
-// 		{
-// 			smallest = stack->cost;
-// 			cheapest = stack;
-// 		}
-// 		stack = stack->next;
-// 	}
-// 	return (cheapest);
-// }
 t_stack	*get_cheapest(t_stack *stack)
 {
 	t_stack	*cheapest;
